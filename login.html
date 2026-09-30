@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>login page</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./login.css" />
+  </head>
+  <body>
+    <div class="login-form">
+      <i class="fa-solid fa-user"></i>
+      <h1>login</h1>
+      <p>Pleas sign in</p>
+
+      <form action="#">
+        <input
+          type="text"
+          placeholder="UserName..."
+          class="space"
+          required
+          name="username"
+          id="username"
+        />
+        <p id="usernameerror"></p>
+
+        <input
+          type="password"
+          placeholder=" Password... "
+          class="space"
+          minlength="3"
+          required
+          name="password"
+          id="password"
+        />
+        <p class="necesery">Not Registered? <span>Create an account</span></p>
+        <p id="passworderror"></p>
+        <br />
+        <div class="first-line">
+          <div class="check-box">
+            <input type="checkbox" id="no-space" />
+            <p>Remember Me</p>
+          </div>
+
+          <span>Forget Password?</span>
+        </div>
+
+        <button class="btn-login" onclick="login()">Login</button>
+      </form>
+      <div class="btns">
+        <div class="icons"><i class="fa-brands fa-google"></i></div>
+        <div class="icons"><i class="fa-brands fa-facebook"></i></div>
+      </div>
+    </div>
+
+    <!-- scrip code -->
+    <script>
+      function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+
+        let usernameeror = document.getElementById("usernameerror");
+        let passworderrorr = document.getElementById("passworderror");
+
+        usernameeror.textContent = "";
+        passworderrorr.textContent = "";
+
+        if (user === "admin" && pass === "1234") {
+          usernameeror.textContent = "Welcome Admin✔";
+        } else if (user !== "admin" && pass === "1234")
+          passworderrorr.textContent = "Incorrect password or username";
+        else usernameeror.textContent = "welcome " + user + " !😁";
+      }
+    </script>
+  </body>
+</html>
